@@ -1,10 +1,9 @@
 package detail
 
 import (
-	"github.com/GeertJohan/go.rice"
+	"github.com/fortytw2/barrage/lib"
 	"log"
 	"os"
-	"html/template"
 	"net/http"
 )
 
@@ -15,29 +14,7 @@ func init()  {
 }
 
 func GetDetailPage(w http.ResponseWriter, r *http.Request) {
-	// find a rice.Box
-	templateBox, err := rice.FindBox("../../templates")
-	if err != nil {
-		l.Println(err)
-	}
-	// load the base templatestring
-	baseTemplateString, err := templateBox.String("base.tpl")
-	if err != nil {
-		l.Println(err)
-	}
-	// get file contents as string
-	templateString, err := templateBox.String("detail/detail.tpl")
-	if err != nil {
-		l.Println(err)
-	}
-
-	// parse and execute the template
-	t, err := template.New("detail").Parse(baseTemplateString)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-
-	t, err = t.Parse(templateString)
+	t, err := lib.RenderTemplate("detail/detail.tpl")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
