@@ -1,0 +1,4 @@
+inputfolder = "videosrc"
+outputfolder = "video"
+database = "barrage.db"
+port = ":8080"

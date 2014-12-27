@@ -1,0 +1,18 @@
+barrage
+barrage.exe
+
+static/css/main.min.css
+static/css/home.css
+
+static.rice-box.go
+
+# video files during testing
+video/
+# vendored copy of MKVToolnix.
+mkvtoolnix/
+
+# ensuring no video/subtitle tracks are committed
+*.mkv
+*.srt
+
+config.toml
