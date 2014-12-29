@@ -1,9 +1,10 @@
-package main
+ package main
 
 import (
 	"github.com/GeertJohan/go.rice"
 	"github.com/fortytw2/barrage/app/home"
 	"github.com/fortytw2/barrage/app/detail"
+	"github.com/fortytw2/barrage/cache"
 	"github.com/fortytw2/barrage/config"
 	"github.com/gorilla/mux"
 	"log"
@@ -23,11 +24,13 @@ func init() {
 func main() {
 	router := mux.NewRouter()
 
+	cache.ParseFiles(config.Config.SourceFolder)
+
 	router.HandleFunc("/", home.GetHomePage).Methods("GET")
 	router.HandleFunc("/about", home.GetAboutPage).Methods("GET")
 	router.HandleFunc("/detail", detail.GetDetailPage).Methods("GET")
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(rice.MustFindBox("static").HTTPBox())))
-	http.Handle("/video/", http.StripPrefix("/video/", http.FileServer(http.Dir("video"))))
+	http.Handle("/video/", http.StripPrefix("/video/", http.FileServer(http.Dir(config.Config.StorageFolder))))
 	http.Handle("/", httpLogger(router))
 
 	l.Println("Welcome to barrage. Now listening on localhost, port", config.Config.Port)

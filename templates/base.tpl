@@ -48,7 +48,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="margin-top:65px;">
       {{ template "body" }}
     </div>
 

@@ -5,7 +5,7 @@ import (
 )
 
 type config struct {
-  SourceFolder  string `toml:"inputfolder"`
+  SourceFolder  string `toml:"sourcefolder"`
   StorageFolder string `toml:"storagefolder"`
   DB            string `toml:"database"`
   Port          string 
