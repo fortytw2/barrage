@@ -1,9 +1,12 @@
 package search
 
 import (
-  "log"
+	"os"
+	"log"
 )
 
+var l *log.Logger
+
 func init()  {
-  l = log.New(os.Stdout, "", log.Ltime|log.Lshortfile)
+	l = log.New(os.Stdout, "", log.Ltime|log.Lshortfile)
 }

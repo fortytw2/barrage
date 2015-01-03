@@ -6,6 +6,7 @@ import (
 )
 
 func GetAboutPage(w http.ResponseWriter, r *http.Request) {
+	
 	t, err := lib.RenderTemplate("home/about.tpl")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
