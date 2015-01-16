@@ -19,18 +19,14 @@ MEDIA -
      |- TV Shows (Name of this folder can be anything)
      	|- Show 1
      		|- bunch of video files
-     		|- metadata.toml
-     	|- Show 2
-     		|- Season 1
-     			|- bunch of video files
-     			|- metadata.toml
-     		|- Season 2
-     			|- bunch of video files
-     			|- metadata.toml
+     		|- tv.toml
+          |- Show 2
+               |- bunch of video files
+               |- tv.toml
      |- Movies
      	|- Movie 1
      		|- video file
-     		|- metadata.toml
+     		|- movie.toml
 ```
 Having a metadata file makes tracking everything accurately incredibly easy 
 compared to trying to guess at filenames and foldernames to figure out what's 
@@ -66,7 +62,7 @@ If `static.rice-box.go` exists next to `main.go`, barrage should be able to be
 cross-compiled for any platform that Go runs on.
 
 Setup a `config.toml` as the example `config.ex.toml` shows - default values
-should be more than fine.
+should be more than fine.cd
 
 Runtime Dependencies
 ------

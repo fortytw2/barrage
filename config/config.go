@@ -1,20 +1,32 @@
 package config
 
 import (
-  "github.com/BurntSushi/toml"
+	"github.com/BurntSushi/toml"
 )
 
-type config struct {
-  SourceFolder  string `toml:"sourcefolder"`
-  StorageFolder string `toml:"storagefolder"`
-  DB            string `toml:"database"`
-  Port          string 
+type deserializedConfig struct {
+	SourceFolder  string `toml:"sourcefolder"`
+	StorageFolder string `toml:"storagefolder"`
+	DB            string `toml:"database"`
+	Port          string
 }
 
-var Config config
+var SourceFolder string
+var StorageFolder string
+var DB string
+var Port string
 
 func init() {
-  if _, err := toml.DecodeFile("config.toml", &Config); err != nil {
-    panic(err)
-  }
+
+	var config deserializedConfig
+
+	if _, err := toml.DecodeFile("config.toml", &config); err != nil {
+		panic(err)
+	}
+
+	SourceFolder = config.SourceFolder
+	StorageFolder = config.StorageFolder
+	DB = config.DB
+	Port = config.Port
+
 }

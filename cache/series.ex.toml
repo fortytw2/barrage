@@ -1,0 +1,44 @@
+title = "Clannad"
+
+description = """
+Okazaki Tomoya is a delinquent who finds life dull and believes he'll never amount to anything. Along with his friend Sunohara, he skips school and plans to waste his high school days away.
+
+One day while walking to school, Tomoya passes a young girl muttering quietly to herself. Without warning she exclaims "Anpan!" (a popular Japanese food) which catches Tomoya's attention. He soon discovers the girl's name is Furukawa Nagisa and that she exclaims things she likes in order to motivate herself. Nagisa claims they are now friends, but Tomoya walks away passing the encounter off as nothing.
+
+However, Tomoya finds he is noticing Nagisa more and more around school. Eventually he concedes and befriends her. Tomoya learns Nagisa has been held back a year due to a severe illness and that her dream is to revive the school's drama club. Claiming he has nothing better to do, he decides to help her achieve this goal along with the help of four other girls.
+
+As Tomoya spends more time with the girls, he learns more about them and their problems. As he attempts to help each girl overcome her respective obstacle, he begins to realise life isn't as dull as he once thought."""
+
+
+
+# this section is an ordered list of each episode and it's metadata
+# every field other than the filename is optional
+[[episodes]]
+filename = "Clannad - e01.mkv"
+
+title = "On The Hillside Path Where The Cherry Blossoms Flutter"
+
+# original airing date - format MUST be like this
+date = 2007-10-04T00:00:00Z
+
+# season, optional if the series has multiple seasons, defaults to 0 - so seasons are {0,1,2,3,4} not {1,2,3,4}
+season = 0
+
+# description
+description = """
+On the way to Hikarizaka high school one day, Tomoya Okazaki, a delinquent third-year student wishing for changes to occur in his life, meets a strange girl talking to herself named Nagisa Furukawa. Throughout the day, he is introduced to many of the main female characters; Kyou Fujibayashi and her sister Ryou Fujibayashi, astounded by their personalities. Later in the day, Tomoya has a conversation with Nagisa during lunch and learns that she is repeating her last year of high school, due to being absent too much because of illness, and wants to join the now-disbanded drama club. They watch when a female transfer student beats up two guys on motor bikes. After school, Tomoya goes to Nagisa's Furukawa family bakery and meets her eccentric parents, Akio Furukawa and Sanae Furukawa; he is invited to have dinner with them. """
+
+[[episodes]]
+filename = "Clannad - e02.mkv"
+title = "The First Step"
+date = 2007-10-11T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - e03.mkv"
+title = "Once Again After Crying"
+date = 2007-10-18T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - e04.mkv"
+title = "Let's Find Friends"
+date = 2007-10-25T00:00:00Z
