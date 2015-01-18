@@ -2,19 +2,14 @@ title = "Clannad"
 
 description = """
 Okazaki Tomoya is a delinquent who finds life dull and believes he'll never amount to anything. Along with his friend Sunohara, he skips school and plans to waste his high school days away.
-
 One day while walking to school, Tomoya passes a young girl muttering quietly to herself. Without warning she exclaims "Anpan!" (a popular Japanese food) which catches Tomoya's attention. He soon discovers the girl's name is Furukawa Nagisa and that she exclaims things she likes in order to motivate herself. Nagisa claims they are now friends, but Tomoya walks away passing the encounter off as nothing.
-
 However, Tomoya finds he is noticing Nagisa more and more around school. Eventually he concedes and befriends her. Tomoya learns Nagisa has been held back a year due to a severe illness and that her dream is to revive the school's drama club. Claiming he has nothing better to do, he decides to help her achieve this goal along with the help of four other girls.
-
 As Tomoya spends more time with the girls, he learns more about them and their problems. As he attempts to help each girl overcome her respective obstacle, he begins to realise life isn't as dull as he once thought."""
-
-
 
 # this section is an ordered list of each episode and it's metadata
 # every field other than the filename is optional
 [[episodes]]
-filename = "Clannad - e01.mkv"
+filename = "Clannad - 01.mkv"
 
 title = "On The Hillside Path Where The Cherry Blossoms Flutter"
 
@@ -24,21 +19,117 @@ date = 2007-10-04T00:00:00Z
 # season, optional if the series has multiple seasons, defaults to 0 - so seasons are {0,1,2,3,4} not {1,2,3,4}
 season = 0
 
-# description
-description = """
-On the way to Hikarizaka high school one day, Tomoya Okazaki, a delinquent third-year student wishing for changes to occur in his life, meets a strange girl talking to herself named Nagisa Furukawa. Throughout the day, he is introduced to many of the main female characters; Kyou Fujibayashi and her sister Ryou Fujibayashi, astounded by their personalities. Later in the day, Tomoya has a conversation with Nagisa during lunch and learns that she is repeating her last year of high school, due to being absent too much because of illness, and wants to join the now-disbanded drama club. They watch when a female transfer student beats up two guys on motor bikes. After school, Tomoya goes to Nagisa's Furukawa family bakery and meets her eccentric parents, Akio Furukawa and Sanae Furukawa; he is invited to have dinner with them. """
-
 [[episodes]]
-filename = "Clannad - e02.mkv"
+filename = "Clannad - 02.mkv"
 title = "The First Step"
 date = 2007-10-11T00:00:00Z
 
 [[episodes]]
-filename = "Clannad - e03.mkv"
+filename = "Clannad - 03.mkv"
 title = "Once Again After Crying"
 date = 2007-10-18T00:00:00Z
 
 [[episodes]]
-filename = "Clannad - e04.mkv"
+filename = "Clannad - 04.mkv"
 title = "Let's Find Friends"
 date = 2007-10-25T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 05.mkv"
+title = "The Scenery With A Carving"
+date = 2007-11-01T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 06.mkv"
+title = "The Older And Younger Sister's Founder's Festival"
+date = 2007-11-08T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 07.mkv"
+title = "Star-Shaped Feelings"
+date = 2007-11-15T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 08.mkv"
+title = "The Wind That Vanishes Into The Twilight"
+date = 2007-11-22T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 09.mkv"
+title = "Until The End Of The Dream"
+date = 2007-11-29T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 10.mkv"
+title = "The Girl Genius' Challenge"
+date = 2007-12-06T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 11.mkv"
+title = "The After School Rhapsody"
+date = 2007-12-13T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 12.mkv"
+title = "Hidden World"
+date = 2007-12-20T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 13.mkv"
+title = "Garden of Memories"
+date = 2008-01-10T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 14.mkv"
+title = "Theory Of Everything"
+date = 2008-01-17T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 15.mkv"
+title = "Stuck Problem"
+date = 2008-01-24T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 16.mkv"
+title = "3 On 3"
+date = 2008-01-31T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 17.mkv"
+title = "A Room Without Anyone"
+date = 2008-02-07T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 18.mkv"
+title = "Counter Measures"
+date = 2008-02-14T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 19.mkv"
+title = "A New Life"
+date = 2008-02-28T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 20.mkv"
+title = "A Hidden Past"
+date = 2008-03-06T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 21.mkv"
+title = "Face Toward the School Festival"
+date = 2008-03-16T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 22.mkv"
+title = "Two Shadows"
+date = 2008-03-20T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 23.mkv"
+title = "The Events of Summer Holidays"
+date = 2008-03-28T00:00:00Z
+
+[[episodes]]
+filename = "Clannad - 24.mkv"
+title = "OVA: Another World: Tomoyo Chapter"
+date = 2008-06-16T00:00:00Z
