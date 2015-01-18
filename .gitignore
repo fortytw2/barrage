@@ -1,8 +1,8 @@
 barrage
 barrage.exe
 
-static/css/main.min.css
-static/css/home.css
+static/css/*
+static/js/*
 
 static.rice-box.go
 

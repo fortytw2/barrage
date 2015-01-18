@@ -7,13 +7,14 @@ import (
 	"github.com/kr/fs"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
 type Series struct {
 	Title       string
 	Description string
-	Group       string
+	RootURI     string
 	Episodes    []Episode
 }
 
@@ -30,7 +31,7 @@ type Movie struct {
 	ReleaseDate time.Time
 	Description string
 	File        string
-	Group       string
+	RootURI     string
 }
 
 var SeriesDB []Series
@@ -41,7 +42,10 @@ var MovieDB []Movie
 
 // TODO: clean up seasons (add 1 if it's 0), but that's not important
 func init() {
+	loadFromToml()
+}
 
+func loadFromToml() {
 	walker := fs.Walk(config.SourceFolder)
 	for walker.Step() {
 		if err := walker.Err(); err != nil {
@@ -63,6 +67,11 @@ func init() {
 				fmt.Println(err)
 			}
 
+			baseURI := strings.TrimLeft(walker.Path(), config.StorageFolder)
+			// account for running on non Unix-like platforms
+			baseURI = filepath.ToSlash(baseURI)
+			series.RootURI = strings.TrimRight(baseURI, "series.toml")
+
 			SeriesDB = append(SeriesDB, series)
 		}
 		// or we find a movie
@@ -72,6 +81,11 @@ func init() {
 			if _, err := toml.DecodeFile(walker.Path(), &movie); err != nil {
 				fmt.Println(err)
 			}
+
+			baseURI := strings.TrimLeft(walker.Path(), config.StorageFolder)
+			// account for running on non Unix-like platforms
+			baseURI = filepath.ToSlash(baseURI)
+			movie.RootURI = strings.TrimRight(baseURI, "movie.toml")
 
 			MovieDB = append(MovieDB, movie)
 		}

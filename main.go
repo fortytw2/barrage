@@ -11,6 +11,9 @@ import (
 	"time"
 )
 
+//go:generate bash -c "lessc assets/less/barrage.less | cleancss > static/css/barrage.min.css"
+//go:generate bash -c "cat assets/js/mithril.js assets/js/home.js | uglifyjs -o static/js/barrage.min.js"
+
 var l *log.Logger
 
 func init() {
@@ -19,6 +22,7 @@ func init() {
 
 func main() {
 	router := httprouter.New()
+	// series are different from individual movies, but not by much.
 	router.GET("/api/series", media.GetSeriesData)
 	router.GET("/api/movies", media.GetMovieData)
 	router.ServeFiles("/video/*filepath", http.Dir(config.StorageFolder))
