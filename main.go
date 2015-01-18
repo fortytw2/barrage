@@ -12,7 +12,7 @@ import (
 )
 
 //go:generate bash -c "lessc assets/less/barrage.less | cleancss > static/css/barrage.min.css"
-//go:generate bash -c "cat assets/js/mithril.js assets/js/home.js assets/js/detail.js assets/js/router.js | uglifyjs -o static/js/barrage.min.js"
+//go:generate bash -c "cat assets/js/moment.js assets/js/mithril.js assets/js/home.js assets/js/detail.js assets/js/router.js | uglifyjs -o static/js/barrage.min.js"
 
 var l *log.Logger
 

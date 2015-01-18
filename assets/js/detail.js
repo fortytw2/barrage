@@ -36,7 +36,7 @@ detail.view = function(controller) {
         m("ul", {class: "list-group"},[
         m("li", {class: "list-group-item active"}, "Episodes"),
       controller.series().Episodes.map(function(episode, index){
-        return m("li",{class: "list-group-item"}, episode.Title, detail.resButtons(controller.series(), episode))
+        return m("li",{class: "list-group-item"}, episode.Title," - ", moment(episode.ReleaseDate).format("MMMM Do YYYY"),detail.resButtons(controller.series(), episode))
       })]),
       ])
 )};
