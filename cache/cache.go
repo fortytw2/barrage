@@ -12,6 +12,7 @@ import (
 )
 
 type Series struct {
+	Id          int64
 	Title       string
 	Description string
 	RootURI     string
@@ -27,6 +28,7 @@ type Episode struct {
 }
 
 type Movie struct {
+	Id          int64
 	Title       string
 	ReleaseDate time.Time
 	Description string
@@ -46,6 +48,9 @@ func init() {
 }
 
 func loadFromToml() {
+	var seriesNumber int64 = 0
+	var movieNumber int64 = 0
+
 	walker := fs.Walk(config.SourceFolder)
 	for walker.Step() {
 		if err := walker.Err(); err != nil {
@@ -72,6 +77,9 @@ func loadFromToml() {
 			baseURI = filepath.ToSlash(baseURI)
 			series.RootURI = strings.TrimRight(baseURI, "series.toml")
 
+			series.Id = seriesNumber
+			seriesNumber += 1
+
 			SeriesDB = append(SeriesDB, series)
 		}
 		// or we find a movie
@@ -86,6 +94,9 @@ func loadFromToml() {
 			// account for running on non Unix-like platforms
 			baseURI = filepath.ToSlash(baseURI)
 			movie.RootURI = strings.TrimRight(baseURI, "movie.toml")
+
+			movie.Id = movieNumber
+			movieNumber += 1
 
 			MovieDB = append(MovieDB, movie)
 		}
