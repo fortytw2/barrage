@@ -12,7 +12,7 @@ import (
 )
 
 //go:generate bash -c "lessc assets/less/barrage.less | cleancss > static/css/barrage.min.css"
-//go:generate bash -c "cat assets/js/mithril.js assets/js/home.js | uglifyjs -o static/js/barrage.min.js"
+//go:generate bash -c "cat assets/js/mithril.js assets/js/home.js assets/js/detail.js assets/js/router.js | uglifyjs -o static/js/barrage.min.js"
 
 var l *log.Logger
 
@@ -25,6 +25,7 @@ func main() {
 	// series are different from individual movies, but not by much.
 	router.GET("/api/series", media.GetSeriesData)
 	router.GET("/api/movies", media.GetMovieData)
+	router.GET("/api/series/:id", media.GetSingleSeries)
 	router.ServeFiles("/video/*filepath", http.Dir(config.StorageFolder))
 
 	router.NotFound = http.FileServer(rice.MustFindBox("static").HTTPBox()).ServeHTTP

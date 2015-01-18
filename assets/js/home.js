@@ -19,19 +19,14 @@ home.poster = function(series) {
 
 //here's the view
 home.view = function(controller) {
-  return m("div#container", [
+  return m("div", {class: "container"}, [
   controller.series().map(function(series, index) {
     return m("div",{class: "col-md-3"}, m("div", {class: "panel panel-default"}, [
     m("div", {class: "panel-heading"},series.Title),
     home.poster(series),
     m("div", {class: "panel-body"},
-      m("a", {href: "#watch/" + series.Title},
+      m("a[href='/detail/" + series.Id + "']", {config: m.route},
       m("button", {class: "btn btn-default"}, "Watch"))),]));
   }),
   ]);
 };
-
-m.module(document.getElementById('barrage'), {
-  controller: home.controller,
-  view: home.view
-});
