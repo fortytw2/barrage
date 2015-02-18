@@ -1,4 +1,2 @@
-sourcefolder = "videosrc"
-storagefolder = "video"
-database = "barrage.db"
+videofolder = "video/"
 port = ":8080"

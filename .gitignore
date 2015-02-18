@@ -8,8 +8,15 @@ static.rice-box.go
 
 # video files during testing
 video/
+videosrc/
+
+node_modules/
+
 # vendored copy of MKVToolnix.
 mkvtoolnix/
+
+# vendored copy of HandBrake
+handbrake/
 
 # ensuring no video/subtitle tracks are committed
 *.mkv

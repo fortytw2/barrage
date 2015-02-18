@@ -51,13 +51,13 @@ func loadFromToml() {
 	var seriesNumber int64 = 0
 	var movieNumber int64 = 0
 
-	walker := fs.Walk(config.SourceFolder)
+	walker := fs.Walk(config.VideoFolder)
 	for walker.Step() {
 		if err := walker.Err(); err != nil {
 			fmt.Fprintln(os.Stderr, err)
 			continue
 		}
-		rel, err := filepath.Rel(config.SourceFolder, walker.Path())
+		rel, err := filepath.Rel(config.VideoFolder, walker.Path())
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
 		}
@@ -72,10 +72,7 @@ func loadFromToml() {
 				fmt.Println(err)
 			}
 
-			baseURI := strings.TrimLeft(walker.Path(), config.StorageFolder)
-			// account for running on non Unix-like platforms
-			baseURI = filepath.ToSlash(baseURI)
-			series.RootURI = strings.TrimRight(baseURI, "series.toml")
+			series.RootURI = series.Title + "/"
 
 			series.Id = seriesNumber
 			seriesNumber += 1
@@ -90,7 +87,7 @@ func loadFromToml() {
 				fmt.Println(err)
 			}
 
-			baseURI := strings.TrimLeft(walker.Path(), config.StorageFolder)
+			baseURI := strings.TrimLeft(walker.Path(), config.VideoFolder)
 			// account for running on non Unix-like platforms
 			baseURI = filepath.ToSlash(baseURI)
 			movie.RootURI = strings.TrimRight(baseURI, "movie.toml")

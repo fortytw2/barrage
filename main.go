@@ -12,7 +12,7 @@ import (
 )
 
 //go:generate bash -c "lessc assets/less/barrage.less | cleancss > static/css/barrage.min.css"
-//go:generate bash -c "cat assets/js/moment.js assets/js/mithril.js assets/js/home.js assets/js/detail.js assets/js/router.js | uglifyjs -o static/js/barrage.min.js"
+//go:generate bash -c "browserify -t mithrilify assets/js/router.js | uglifyjs -o static/js/barrage.min.js"
 
 var l *log.Logger
 
@@ -22,17 +22,22 @@ func init() {
 
 func main() {
 	router := httprouter.New()
+
 	// series are different from individual movies, but not by much.
 	router.GET("/api/series", media.GetSeriesData)
 	router.GET("/api/movies", media.GetMovieData)
 	router.GET("/api/series/:id", media.GetSingleSeries)
-	router.ServeFiles("/video/*filepath", http.Dir(config.StorageFolder))
+
+	router.ServeFiles("/video/*filepath", http.Dir(config.VideoFolder))
 
 	router.NotFound = http.FileServer(rice.MustFindBox("static").HTTPBox()).ServeHTTP
 
 	l.Println("Welcome to barrage. Now listening on localhost, port", config.Port)
 
-	http.ListenAndServe(config.Port, httpLogger(router))
+	err := http.ListenAndServe(config.Port, httpLogger(router))
+	if err != nil {
+		panic(err)
+	}
 }
 
 // cleanly log all HTTP requests.. might not be the cleanest way to do so

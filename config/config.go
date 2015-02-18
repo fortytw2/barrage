@@ -5,15 +5,11 @@ import (
 )
 
 type deserializedConfig struct {
-	SourceFolder  string `toml:"sourcefolder"`
-	StorageFolder string `toml:"storagefolder"`
-	DB            string `toml:"database"`
-	Port          string
+	VideoFolder string `toml:"videofolder"`
+	Port        string
 }
 
-var SourceFolder string
-var StorageFolder string
-var DB string
+var VideoFolder string
 var Port string
 
 func init() {
@@ -24,9 +20,7 @@ func init() {
 		panic(err)
 	}
 
-	SourceFolder = config.SourceFolder
-	StorageFolder = config.StorageFolder
-	DB = config.DB
+	VideoFolder = config.VideoFolder
 	Port = config.Port
 
 }
