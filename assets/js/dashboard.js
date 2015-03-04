@@ -7,20 +7,15 @@ module.exports.controller = function() {
     method: "GET",
     url: "/api/series"
   });
-  this.movies = m.request({
-    method: "GET",
-    url: "/api/movies"
-  });
   this.navbar = new nav.controller();
 };
 
 // poster helper for the view
 gridView = function(series) {
-  posterURL = "/video/" + series.RootURI + "poster.png";
   return <div class="col c4">
-    <a href={"/?/detail/" + series.Id}>
-      <h3 class="title">{series.Title}</h3>
-      <img src={posterURL} ></img>
+    <a href={"/?/detail/" + series.id}>
+      <h3 class="title">{series.title}</h3>
+      <img src={series.poster} ></img>
     </a>
   </div>;
 };
