@@ -7,21 +7,23 @@ around 50% more disk space in exchange for barely touching the CPU under max
 load, meaning it works flawlessly on extremely under-performant devices, such as
 a Raspberry Pi.
 
+However, due to hard disk space limits, Barrage also supports live transcoding
+
 Setup
 ------
 
-Barrage depends on a particularly structed filesystem layout for the source
+Barrage depends on a particularly structured layout for the source
 media. Essentially, you should have something like:
 ```
 MEDIA -
-     |- TV Shows (Name of this folder can be anything)
+     |- Group Name (Name of this folder can be anything)
      	|- Show 1
      		|- bunch of video files
      		|- series.toml
       |- Show 2
         |- bunch of video files
         |- series.toml
-     |- Movies
+     |- Group Name
      	|- Movie 1
      		|- video file
      		|- movie.toml
@@ -45,22 +47,23 @@ stream the video. This is the biggest compromise barrage makes - sacrificing
 disk space (each set of re-encodes shouldn't take up more space than the source)
 for extremely low CPU usage - keep this in mind as you import files.
 
+SSH Tunneling
+------
+`ssh -nNT remote_port:localhost:local_port user@remote_host`
+
 Building
 ------
-
-Compile the CSS and JS files with `go generate` - you need to have `lessc` and
-`cleancss` installed and in your $PATH (both are avaliable from npm).
+Compile the CSS and JS files with `go generate` - you need to have `lessc`,
+`uglifyjs`, `cleancss`, and `browserify` installed and in your $PATH
 
 Ensure you have go.rice installed with
 `go install github.com/GeertJohan/go.rice/rice`
 
-Using go.rice to embed static files in the source code, simply `rice embed-go`,
+Use go.rice to embed static files in the source code, simply `rice embed-go`,
 then `CGO_ENABLED=0 go build -a` to create the fully independent binary.
-If `static.rice-box.go` exists next to `main.go`, barrage should be able to be
-cross-compiled for any platform that Go runs on.
 
 Setup a `config.toml` as the example `config.ex.toml` shows - default values
-should be more than fine.cd
+should be more than fine.
 
 Runtime Dependencies
 ------
