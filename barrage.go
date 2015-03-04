@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/fortytw2/barrage/config"
 	"github.com/fortytw2/barrage/importer"
 	"github.com/fortytw2/barrage/models"
+	// autoload .env
+	_ "github.com/joho/godotenv/autoload"
 	"github.com/spf13/cobra"
 )
 
@@ -13,6 +15,7 @@ import (
 //go:generate bash -c "browserify -t mithrilify assets/js/router.js > static/js/barrage.min.js"
 
 func main() {
+
 	var webCmd = &cobra.Command{
 		Use:   "web",
 		Short: "runs a webserver",
@@ -34,7 +37,7 @@ func main() {
 		Short: "manual reload of database",
 		Run: func(cmd *cobra.Command, args []string) {
 			db := models.OpenDB()
-			importer.Import(config.VideoFolder, db)
+			importer.Import(os.Getenv("SOURCEFOLDER"), db)
 		},
 	}
 

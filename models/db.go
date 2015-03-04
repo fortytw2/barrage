@@ -2,6 +2,7 @@ package models
 
 import (
 	"log"
+	"os"
 
 	"github.com/jmoiron/sqlx"
 	// import postgres driver
@@ -41,7 +42,7 @@ CREATE TABLE IF NOT EXISTS episodes (
 func OpenDB() *sqlx.DB {
 	log.Println("pq: connecting to database")
 
-	db, err := sqlx.Connect("postgres", "user=postgres password=root dbname=barrage sslmode=disable")
+	db, err := sqlx.Connect("postgres", os.Getenv("DATABASE"))
 	if err != nil {
 		log.Fatal(err)
 	}

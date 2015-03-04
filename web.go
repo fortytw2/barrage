@@ -3,11 +3,11 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/GeertJohan/go.rice"
 	"github.com/fortytw2/barrage/api"
-	"github.com/fortytw2/barrage/config"
 	"github.com/fortytw2/barrage/models"
 	"github.com/julienschmidt/httprouter"
 )
@@ -21,13 +21,13 @@ func runWeb() {
 	router.GET("/api/series", api.GetSeries(db))
 	router.GET("/api/series/:id", api.GetSeriesDetail(db))
 
-	router.ServeFiles("/video/*filepath", http.Dir(config.VideoFolder))
+	router.ServeFiles("/video/*filepath", http.Dir(os.Getenv("SOURCEFOLDER")))
 
 	router.NotFound = http.FileServer(rice.MustFindBox("static").HTTPBox()).ServeHTTP
 
-	log.Println("Welcome to barrage. Now listening on localhost, port", config.Port)
+	log.Println("Welcome to barrage. Now listening on localhost, port", os.Getenv("PORT"))
 
-	err := http.ListenAndServe(config.Port, httpLogger(router))
+	err := http.ListenAndServe(os.Getenv("PORT"), httpLogger(router))
 	if err != nil {
 		panic(err)
 	}
