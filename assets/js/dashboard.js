@@ -32,6 +32,10 @@ rows = function(gridView) {
     } else {
       row.push(seriesGrid);
     }
+
+    if (index + 1 == gridView.length) {  
+      gridded.push(<div class="row">{row}</div>);
+    }
   });
   return gridded;
 };
