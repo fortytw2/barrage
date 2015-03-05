@@ -12,11 +12,15 @@ module.exports.controller = function() {
 
 // poster helper for the view
 gridView = function(series) {
-  return <div class="col c4">
+  return <div class="panel panel-default col c4">
+    <div class="panel-heading">
+      {series.title}
+    </div>
+    <div class="panel-body">
     <a href={"/?/detail/" + series.id}>
-      <h3 class="title">{series.title}</h3>
       <img src={series.poster} ></img>
     </a>
+    </div>
   </div>;
 };
 
@@ -33,7 +37,7 @@ rows = function(gridView) {
       row.push(seriesGrid);
     }
 
-    if (index + 1 == gridView.length) {  
+    if (index + 1 == gridView.length) {
       gridded.push(<div class="row">{row}</div>);
     }
   });

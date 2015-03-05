@@ -29,10 +29,10 @@ resButtons = function(series, episode) {
 
 // ensure a string isn't too long to display properly
 shorten = function(str) {
-  if (str.length < 55) {
+  if (str.length < 65) {
     return str;
   } else {
-    return str.substring(0,55) + "...";
+    return str.substring(0,65) + "...";
   }
 };
 
